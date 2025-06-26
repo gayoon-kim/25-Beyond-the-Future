@@ -1,4 +1,3 @@
-// content.js 확정본 - 클로저 캡처 방식 개선 포함
 console.log("콘텐츠 스크립트가 트위터 페이지에 로드되었습니다.");
 
 tf.wasm.setWasmPath(chrome.runtime.getURL('js/tfjs-backend-wasm.wasm'));
