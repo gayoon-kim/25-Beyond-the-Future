@@ -18,7 +18,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       sendResponse({ result: "분석 실패" });
     });
 
-    // sendResponse는 비동기 사용을 위해 true 반환 필수
     return true;
   }
 });
