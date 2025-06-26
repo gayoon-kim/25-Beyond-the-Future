@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "트위터 광고성/혐오성 바이럴 탐지기",
+  "version": "1.0",
+  "description": "트위터 게시물에서 광고성 또는 혐오성 바이럴을 탐지합니다.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitter.com/*", "*://*.x.com/*"],
+       "js": [
+        "js/tf-core.min.js",
+        "js/tf-backend-wasm.min.js",
+        "js/tfjs-layers.min.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["model/*", "js/tf-core.min.js", "js/tf-backend-wasm.min.js", "js/tfjs-layers.min.js", "js/tfjs-backend-wasm.wasm"],
+      "matches": ["*://*.twitter.com/*", "*://*.x.com/*"]
+    }
+  ],
+  "background": {
+  "service_worker": "background.js"
+}
+
+}
